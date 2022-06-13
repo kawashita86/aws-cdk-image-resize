@@ -3,7 +3,7 @@ import * as origins from '@aws-cdk/aws-cloudfront-origins';
 import * as lambda from '@aws-cdk/aws-lambda';
 import { NodejsFunction, NodejsFunctionProps } from '@aws-cdk/aws-lambda-nodejs';
 import * as s3 from '@aws-cdk/aws-s3';
-import { Construct, Duration } from '@aws-cdk/core';
+import * as cdk from '@aws-cdk/core';
 import { DistributionProps, FunctionProps } from './types';
 export * from './types';
 
@@ -14,13 +14,13 @@ export interface IImageResizeProps {
   viewerRequestLambdaProps?: FunctionProps;
 }
 
-export class ImageResize extends Construct {
+export class ImageResize extends cdk.Construct {
   distribution: cloudfront.Distribution;
   imageOriginResponseLambda: NodejsFunction;
   imagesBucket: s3.Bucket;
   imageViewerRequestLambda: lambda.Function;
 
-  constructor(scope: Construct, id: string, props?: IImageResizeProps) {
+  constructor(scope: cdk.Construct, id: string, props?: IImageResizeProps) {
     super(scope, id);
 
     const { s3BucketProps, originResponseLambdaProps, viewerRequestLambdaProps, cloudfrontDistributionProps } =
@@ -37,7 +37,7 @@ export class ImageResize extends Construct {
       functionName: 'image-origin-response-function',
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_12_X,
-      timeout: Duration.seconds(15),
+      timeout: cdk.Duration.seconds(15),
       ...originResponseLambdaProps,
     });
 
@@ -54,11 +54,11 @@ export class ImageResize extends Construct {
 
     const cachePolicy = new cloudfront.CachePolicy(this, 'CachePolicy', {
       cachePolicyName: 'images-cache-policy',
-      defaultTtl: Duration.days(365), // 1 year
+      defaultTtl: cdk.Duration.days(365), // 1 year
       enableAcceptEncodingBrotli: true,
       enableAcceptEncodingGzip: true,
-      maxTtl: Duration.days(365 * 2), // 2 years
-      minTtl: Duration.days(30 * 3), // 3 months
+      maxTtl: cdk.Duration.days(365 * 2), // 2 years
+      minTtl: cdk.Duration.days(30 * 3), // 3 months
       queryStringBehavior: cloudfront.CacheQueryStringBehavior.allowList('height', 'width'),
     });
 
