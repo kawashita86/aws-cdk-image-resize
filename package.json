@@ -1,9 +1,9 @@
 {
-  "name": "aws-cdk-image-resize",
+  "name": "aws-cdk-image-resizer",
   "description": "AWS CDK construct to easily setup the required arquitecture to serve performant responsive images.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nlopezm/aws-cdk-image-resize.git"
+    "url": "https://github.com/kawashita86/aws-cdk-image-resize.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -18,7 +18,7 @@
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
     "publish:github": "npx projen publish:github",
-    "publish:npm": "npx projen publish:npm",
+    "publish:npm": " npx projen publish:npm",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:update": "npx projen test:update",
@@ -30,31 +30,32 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "nlopezm",
+    "name": "kawashita86",
     "organization": false
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.152.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.17.0",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
-    "eslint": "^7.20.0",
-    "eslint-import-resolver-node": "^0.3.4",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-import": "^2.22.1",
+    "@types/prettier": "2.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.17.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "jsii": "^1.20.1",
     "jsii-diff": "^1.20.1",
     "jsii-docgen": "^1.8.41",
     "jsii-pacmak": "^1.20.1",
-    "json-schema": "^0.3.0",
+    "json-schema": "^0.4.0",
     "npm-check-updates": "^11",
     "projen": "^0.33.2",
     "standard-version": "^9",
     "ts-jest": "^26.5.1",
-    "typescript": "^3.9.5"
+    "typescript": "^4.6.3"
   },
   "peerDependencies": {
     "@aws-cdk/aws-certificatemanager": "1.152.0",
@@ -74,7 +75,7 @@
     "@aws-cdk/aws-lambda-nodejs": "1.152.0",
     "@aws-cdk/aws-s3": "1.152.0",
     "@aws-cdk/core": "1.152.0",
-    "esbuild": "^0.8.46"
+    "esbuild": "^0.14.43"
   },
   "bundledDependencies": [
     "esbuild"
@@ -92,7 +93,7 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "jest": {
     "testMatch": [
       "**/__tests__/**/*.ts?(x)",

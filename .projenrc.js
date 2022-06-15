@@ -1,12 +1,12 @@
 const { AwsCdkConstructLibrary } = require('projen');
 
 const project = new AwsCdkConstructLibrary({
-  author: 'nlopezm',
-  cdkVersion: '1.132.0',
+  author: 'kawashita86',
+  cdkVersion: '1.152.0',
   defaultReleaseBranch: 'main',
   jsiiFqn: 'projen.AwsCdkConstructLibrary',
-  name: 'aws-cdk-image-resize',
-  repositoryUrl: 'https://github.com/nlopezm/aws-cdk-image-resize.git',
+  name: 'aws-cdk-image-resizer',
+  repositoryUrl: 'https://github.com/kawashita86/aws-cdk-image-resize.git',
   cdkVersionPinning: true,
   cdkDependencies: [
     '@aws-cdk/aws-cloudfront-origins',
@@ -20,9 +20,11 @@ const project = new AwsCdkConstructLibrary({
   eslint: true,
   keywords: ['aws-cdk', 'aws', 'cdk', 'cloudfront', 'formatter', 'images', 'lambda', 'lambda@edge', 'resize'],
   gitignore: ['cdk.out'],
-  deps: ['esbuild@^0.8.46'],
-  bundledDeps: ['esbuild@^0.8.46'],
-
+  deps: ['esbuild@^0.14.43'],
+  bundledDeps: ['esbuild@^0.14.43'],
+  devDeps: [
+    '@types/prettier@2.6.0',
+  ],
   /* AwsCdkConstructLibraryOptions */
   // cdkAssert: true,                                                          /* Install the @aws-cdk/assert library? */
   // cdkDependencies: undefined,                                               /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */

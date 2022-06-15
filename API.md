@@ -4,26 +4,26 @@
 
 Name|Description
 ----|-----------
-[ImageResize](#aws-cdk-image-resize-imageresize)|*No description*
+[ImageResize](#aws-cdk-image-resizer-imageresize)|*No description*
 
 
 **Structs**
 
 Name|Description
 ----|-----------
-[DistributionProps](#aws-cdk-image-resize-distributionprops)|Properties for a Distribution.
-[FunctionProps](#aws-cdk-image-resize-functionprops)|*No description*
+[DistributionProps](#aws-cdk-image-resizer-distributionprops)|Properties for a Distribution.
+[FunctionProps](#aws-cdk-image-resizer-functionprops)|*No description*
 
 
 **Interfaces**
 
 Name|Description
 ----|-----------
-[IImageResizeProps](#aws-cdk-image-resize-iimageresizeprops)|*No description*
+[IImageResizeProps](#aws-cdk-image-resizer-iimageresizeprops)|*No description*
 
 
 
-## class ImageResize  <a id="aws-cdk-image-resize-imageresize"></a>
+## class ImageResize  <a id="aws-cdk-image-resizer-imageresize"></a>
 
 
 
@@ -41,7 +41,7 @@ new ImageResize(scope: Construct, id: string, props?: IImageResizeProps)
 
 * **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[IImageResizeProps](#aws-cdk-image-resize-iimageresizeprops)</code>)  *No description*
+* **props** (<code>[IImageResizeProps](#aws-cdk-image-resizer-iimageresizeprops)</code>)  *No description*
 
 
 
@@ -57,7 +57,7 @@ Name | Type | Description
 
 
 
-## struct DistributionProps  <a id="aws-cdk-image-resize-distributionprops"></a>
+## struct DistributionProps  <a id="aws-cdk-image-resizer-distributionprops"></a>
 
 
 Properties for a Distribution.
@@ -87,7 +87,7 @@ Name | Type | Description
 
 
 
-## struct FunctionProps  <a id="aws-cdk-image-resize-functionprops"></a>
+## struct FunctionProps  <a id="aws-cdk-image-resizer-functionprops"></a>
 
 
 
@@ -105,9 +105,11 @@ Name | Type | Description
 **currentVersionOptions**? | <code>[VersionOptions](#aws-cdk-aws-lambda-versionoptions)</code> | Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.<br/>__*Default*__: default options as described in `VersionOptions`
 **deadLetterQueue**? | <code>[IQueue](#aws-cdk-aws-sqs-iqueue)</code> | The SQS queue to use if DLQ is enabled.<br/>__*Default*__: SQS queue with 14 day retention period if `deadLetterQueueEnabled` is `true`
 **deadLetterQueueEnabled**? | <code>boolean</code> | Enabled DLQ.<br/>__*Default*__: false unless `deadLetterQueue` is set, which implies DLQ is enabled.
+**deadLetterTopic**? | <code>[ITopic](#aws-cdk-aws-sns-itopic)</code> | The SNS topic to use as a DLQ.<br/>__*Default*__: no SNS topic
 **description**? | <code>string</code> | A description of the function.<br/>__*Default*__: No description.
 **environment**? | <code>Map<string, string></code> | Key-value pairs that Lambda caches and makes available for your Lambda functions.<br/>__*Default*__: No environment variables.
 **environmentEncryption**? | <code>[IKey](#aws-cdk-aws-kms-ikey)</code> | The AWS KMS key that's used to encrypt your function's environment variables.<br/>__*Default*__: AWS Lambda creates and uses an AWS managed customer master key (CMK).
+**ephemeralStorageSize**? | <code>[Size](#aws-cdk-core-size)</code> | The size of the function’s /tmp directory in MB.<br/>__*Default*__: 512 MiB
 **events**? | <code>Array<[IEventSource](#aws-cdk-aws-lambda-ieventsource)></code> | Event sources for this function.<br/>__*Default*__: No event sources.
 **filesystem**? | <code>[FileSystem](#aws-cdk-aws-lambda-filesystem)</code> | The filesystem configuration for the lambda function.<br/>__*Default*__: will not mount any filesystem
 **functionName**? | <code>string</code> | A name for the function.<br/>__*Default*__: AWS CloudFormation generates a unique physical ID and uses that ID for the function's name. For more information, see Name Type.
@@ -137,7 +139,7 @@ Name | Type | Description
 
 
 
-## interface IImageResizeProps  <a id="aws-cdk-image-resize-iimageresizeprops"></a>
+## interface IImageResizeProps  <a id="aws-cdk-image-resizer-iimageresizeprops"></a>
 
 
 
@@ -147,10 +149,10 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**cloudfrontDistributionProps**? | <code>[DistributionProps](#aws-cdk-image-resize-distributionprops)</code> | __*Optional*__
+**cloudfrontDistributionProps**? | <code>[DistributionProps](#aws-cdk-image-resizer-distributionprops)</code> | __*Optional*__
 **originResponseLambdaProps**? | <code>[NodejsFunctionProps](#aws-cdk-aws-lambda-nodejs-nodejsfunctionprops)</code> | __*Optional*__
 **s3BucketProps**? | <code>[BucketProps](#aws-cdk-aws-s3-bucketprops)</code> | __*Optional*__
-**viewerRequestLambdaProps**? | <code>[FunctionProps](#aws-cdk-image-resize-functionprops)</code> | __*Optional*__
+**viewerRequestLambdaProps**? | <code>[FunctionProps](#aws-cdk-image-resizer-functionprops)</code> | __*Optional*__
 
 
 
